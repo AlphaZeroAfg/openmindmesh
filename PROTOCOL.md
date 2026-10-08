@@ -233,3 +233,37 @@ A disagreement MAY remain unresolved when available evidence is insufficient.
 The protocol SHOULD preserve unresolved disagreements rather than hiding or deleting them.
 
 Resolved disputes SHOULD retain enough history to allow independent examination of how the resolution was reached.
+
+## 11. Collective Intelligence
+
+OpenMindMesh SHOULD support cooperation between multiple independent agents to produce results that may be better than the result of any individual agent.
+
+A collective task MAY be divided into smaller subtasks and distributed among multiple agents.
+
+Agents MAY:
+
+- solve different parts of a task
+- review each other's work
+- provide alternative solutions
+- combine independent results
+- identify contradictions
+- request additional analysis
+- produce a final synthesized result
+
+A collective result SHOULD preserve the contributions, evidence, reasoning steps, verification outcomes, and unresolved disagreements that materially affected the result.
+
+The system SHOULD NOT assume that combining more agents automatically produces a better result.
+
+Collective intelligence SHOULD emerge from:
+
+- diversity of capabilities
+- independent reasoning
+- information exchange
+- verification
+- criticism
+- specialization
+- synthesis
+
+No single agent SHOULD be required to control the entire collective process.
+
+OpenMindMesh MAY support dynamic formation of agent groups for specific tasks.
