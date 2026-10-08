@@ -30,13 +30,7 @@ def test_receive_task():
 
     data = response.json()
 
-    assert data["status"] == "received"
+    assert data["status"] == "completed"
     assert data["task_id"] == "task-001"
     assert data["objective"] == "test task"
-    assert data["input_data"]["value"] == 42
-
-
-if __name__ == "__main__":
-    test_health()
-    test_receive_task()
-    print("OpenMindMesh server tests: PASSED")
+    assert data["output"]["received_input"]["value"] == 42
