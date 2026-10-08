@@ -267,3 +267,38 @@ Collective intelligence SHOULD emerge from:
 No single agent SHOULD be required to control the entire collective process.
 
 OpenMindMesh MAY support dynamic formation of agent groups for specific tasks.
+
+## 12. Agent Selection and Coordination
+
+For a task requiring multiple agents, OpenMindMesh SHOULD support dynamic selection and coordination of suitable agents.
+
+Agent selection MAY consider:
+
+- capabilities
+- availability
+- previous task history
+- verification history
+- evidence quality
+- specialization
+- current workload
+- network connectivity
+
+Selection SHOULD NOT depend solely on reputation or a single central authority.
+
+A coordinating agent MAY propose a group of agents for a task.
+
+Other agents MAY independently evaluate or challenge the proposed selection.
+
+Coordination MAY be:
+
+- centralized for a specific task
+- distributed among participating agents
+- dynamically reassigned during execution
+
+No permanent coordinator SHOULD be required.
+
+If a coordinating agent becomes unavailable or produces unreliable results, another suitable agent SHOULD be able to take over coordination.
+
+The network SHOULD support parallel execution of independent subtasks when appropriate.
+
+Coordination decisions SHOULD be observable and independently examinable.
