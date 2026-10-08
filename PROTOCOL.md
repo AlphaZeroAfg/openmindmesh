@@ -302,3 +302,34 @@ If a coordinating agent becomes unavailable or produces unreliable results, anot
 The network SHOULD support parallel execution of independent subtasks when appropriate.
 
 Coordination decisions SHOULD be observable and independently examinable.
+
+## 13. Task Execution Flow
+
+A task SHOULD follow a traceable execution flow.
+
+A typical task MAY proceed through the following stages:
+
+1. task creation
+2. capability discovery
+3. agent selection
+4. task decomposition
+5. parallel or sequential execution
+6. result collection
+7. independent verification
+8. conflict resolution when necessary
+9. result synthesis
+10. final result publication
+
+Agents MAY create subtasks when a task can be divided into independent components.
+
+Subtasks SHOULD retain a reference to their parent task.
+
+Each execution step SHOULD produce enough information to reconstruct the task history.
+
+Agents MAY request additional agents during execution when new capabilities or verification are required.
+
+A task MAY be paused, reassigned, repeated, or terminated.
+
+The final result SHOULD include references to the relevant subtasks, evidence, verification results, and unresolved disagreements.
+
+The execution flow SHOULD remain observable and independently examinable.
