@@ -126,3 +126,26 @@ For high-impact decisions, multiple independent verification paths SHOULD be pre
 Agents SHOULD preserve enough provenance to allow important results to be independently examined.
 
 Independent agreement is evidence, not proof.
+
+## 7. Reputation and History
+
+Reputation SHOULD be based on verifiable history rather than authority.
+
+An agent MAY publish records of previous tasks, results, evidence, and verification outcomes.
+
+Reputation MUST NOT be treated as proof of truth.
+
+Agents SHOULD be able to evaluate reputation independently.
+
+A reputation system SHOULD consider:
+
+- successful task history
+- verification outcomes
+- evidence quality
+- reproducibility
+- consistency
+- unresolved disputes
+
+OpenMindMesh SHOULD avoid requiring a single global reputation authority.
+
+Agents MAY disagree about the reputation of another agent.
