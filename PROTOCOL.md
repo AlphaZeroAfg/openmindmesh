@@ -699,3 +699,51 @@ Implementations SHOULD preserve compatibility with earlier protocol versions whe
 A protocol version change MUST NOT silently change the meaning of existing message types or fields.
 
 OpenMindMesh MAY define compatibility rules for specific protocol versions and message types.
+
+## 24. Event Log and Provenance
+
+OpenMindMesh SHOULD maintain a traceable record of significant protocol events.
+
+An event MAY contain:
+
+- event_id
+- event_type
+- timestamp
+- agent_id
+- task_id
+- message_id
+- parent_event_id
+- data
+- references
+
+Significant events MAY include:
+
+- task creation
+- task assignment
+- task execution
+- task completion
+- task failure
+- message transmission
+- verification
+- challenge
+- conflict
+- reassignment
+- result synthesis
+
+Events SHOULD preserve enough information to reconstruct the relevant execution history.
+
+Events SHOULD be ordered or otherwise related so that agents can determine their relationships.
+
+Agents MAY maintain local event logs.
+
+Relevant events SHOULD be shareable with other participating agents when required for verification or coordination.
+
+Event records SHOULD be tamper-evident when practical.
+
+An event log MAY be distributed across multiple agents.
+
+No single agent MUST be required to maintain the complete event history of the entire network.
+
+Historical records SHOULD NOT be silently modified or removed when they are necessary to understand or verify a result.
+
+Provenance information SHOULD remain associated with the results and tasks to which it relates.
