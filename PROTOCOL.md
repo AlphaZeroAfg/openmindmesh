@@ -1113,3 +1113,46 @@ No single implementation MUST be treated as the permanent authority for determin
 The protocol SHOULD support independent conformance testing by multiple implementations or agents.
 
 Conformance results SHOULD remain traceable and SHOULD be updated when an implementation changes in a way that may affect compatibility.
+## 34. Network Resilience and Adversarial Behavior
+
+OpenMindMesh SHOULD remain operational when participating agents behave incorrectly, maliciously, unreliably, or unpredictably.
+
+Agents MAY:
+
+- provide incorrect results
+- provide misleading evidence
+- make false capability claims
+- send invalid messages
+- repeatedly fail tasks
+- attempt to disrupt coordination
+- provide conflicting information
+- become unavailable without notice
+
+The protocol SHOULD allow other agents to detect and respond to such behavior using observable evidence.
+
+Agents SHOULD NOT be automatically trusted merely because they successfully joined the network.
+
+When an agent repeatedly produces invalid or unreliable results, other agents MAY:
+
+- reduce its selection priority
+- request additional verification
+- avoid assigning it specific tasks
+- challenge its claims
+- record relevant failures
+- replace it with another suitable agent
+
+Adversarial behavior SHOULD be distinguished from ordinary failure whenever possible.
+
+A single unreliable or malicious agent SHOULD NOT be able to permanently prevent unrelated agents from communicating or completing tasks.
+
+Critical tasks SHOULD support redundancy, independent verification, or alternative execution paths when appropriate.
+
+Agents SHOULD preserve evidence of significant failures or adversarial behavior when that evidence is relevant to future evaluation.
+
+The protocol SHOULD avoid mechanisms that allow one agent to permanently exclude another agent without observable justification.
+
+Network resilience SHOULD emerge from distributed verification, redundancy, reassignment, independent evaluation, and continued participation of multiple agents.
+
+No permanent central authority MUST be required to detect or respond to unreliable agent behavior.
+
+Resilience mechanisms SHOULD remain compatible with decentralized operation and independent implementations.
