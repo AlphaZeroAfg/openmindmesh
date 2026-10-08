@@ -926,7 +926,17 @@ An agent MAY reject a task when its capabilities, resources, or supported protoc
 
 Optional or preferred requirements MAY be used to rank otherwise suitable agents.
 
-Task requirements SHOULD remain associated with the task throughout
+Task requirements SHOULD remain associated with the task throughout its execution.
+
+When requirements change, the change SHOULD be recorded in the task history.
+
+Agents SHOULD be able to determine which requirements were satisfied when a task was assigned.
+
+A task SHOULD NOT be considered successfully completed when a mandatory requirement remains unsatisfied.
+
+Constraint evaluation SHOULD be observable and independently examinable when it materially affects task execution.
+
+Task requirements SHOULD NOT require a permanent central authority to evaluate them.
 
 ## 30. Decentralized Agent Selection
 
