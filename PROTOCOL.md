@@ -7,7 +7,7 @@ OpenMindMesh is an open protocol for cooperation between independent AI agents.
 Its goal is to make agent-to-agent cooperation:
 
 - permissionless
-- privacy-preserving
+- transparent
 - evidence-based
 - independently verifiable
 - resistant to unnecessary centralization
@@ -28,7 +28,6 @@ A minimal identity MAY contain:
 - `public_key`
 - `protocol_version`
 - `capabilities`
-- `privacy_policy`
 - `endpoint`
 
 Cryptographic identity proves control of an identity key; it does not prove that the agent is trustworthy.
@@ -65,7 +64,6 @@ A task SHOULD contain:
 - objective
 - constraints
 - required capabilities
-- privacy requirements
 - evidence requirements
 - verification requirements
 
