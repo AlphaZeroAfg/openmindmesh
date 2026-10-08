@@ -23,9 +23,13 @@ def health():
 
 @app.post("/task")
 def receive_task(task: TaskRequest):
-    return {
-        "status": "received",
+    result = {
+        "status": "completed",
         "task_id": task.task_id,
         "objective": task.objective,
-        "input_data": task.input_data,
+        "output": {
+            "received_input": task.input_data
+        },
     }
+
+    return result
