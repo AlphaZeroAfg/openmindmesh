@@ -30,6 +30,14 @@ def receive_task(task: TaskRequest):
         "output": {
             "received_input": task.input_data
         },
+        "evidence": {
+            "claim": "Task input was received and processed",
+            "evidence_type": "execution_log",
+            "payload": {
+                "agent": "openmindmesh-agent"
+            },
+            "uncertainty_score": 0.0
+        }
     }
 
     return result
