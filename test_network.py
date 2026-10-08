@@ -1,10 +1,11 @@
+from unittest.mock import patch
 from fastapi.testclient import TestClient
 
 from server import app
 from agent_network import send_task
 
 
-def test_agent_network(monkeypatch):
+def test_agent_network():
     client = TestClient(app)
 
     def fake_post(url, json, timeout):
@@ -19,20 +20,16 @@ def test_agent_network(monkeypatch):
 
         return FakeResponse()
 
-    monkeypatch.setattr(
-        "agent_network.requests.post",
-        fake_post,
-    )
-
-    result = send_task(
-        sender="agent-a",
-        receiver_endpoint="http://localhost:8001",
-        task_id="task-network-001",
-        objective="Test communication between two OpenMindMesh agents",
-        input_data={
-            "message": "Hello from agent-a"
-        },
-    )
+    with patch("agent_network.requests.post", fake_post):
+        result = send_task(
+            sender="agent-a",
+            receiver_endpoint="http://localhost:8001",
+            task_id="task-network-001",
+            objective="Test communication between two OpenMindMesh agents",
+            input_data={
+                "message": "Hello from agent-a"
+            },
+        )
 
     assert result["status"] == "completed"
     assert result["task_id"] == "task-network-001"
