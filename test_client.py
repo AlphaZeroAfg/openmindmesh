@@ -8,10 +8,12 @@ def test_send_task(monkeypatch):
 
         def json(self):
             return {
-                "status": "received",
-                "task_id": "task-001",
-                "objective": "test communication",
-                "input_data": {"value": 42},
+    "status": "completed",
+    "task_id": "task-001",
+    "objective": "test communication",
+    "output": {
+        "received_input": {"value": 42}
+    },
             }
 
     def fake_post(url, json, timeout):
