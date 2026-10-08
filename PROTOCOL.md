@@ -429,3 +429,45 @@ If signature verification fails, the message SHOULD be rejected or marked as unv
 Key changes SHOULD be versioned and traceable.
 
 The protocol SHOULD support key rotation without requiring a central authority.
+
+## 17. Failure Handling and Recovery
+
+OpenMindMesh SHOULD support continued operation when individual agents, connections, or tasks fail.
+
+An agent failure MAY include:
+
+- becoming unavailable
+- timing out
+- returning an invalid message
+- returning an incomplete result
+- failing verification
+- producing repeated errors
+- becoming unreachable
+
+When an expected response is not received within an appropriate time, the requesting agent SHOULD be able to retry, reassign, or terminate the task.
+
+A failed subtask SHOULD NOT automatically cause the entire parent task to fail when alternative execution is possible.
+
+Agents SHOULD be able to report failures using an ERROR message.
+
+An ERROR message MAY contain:
+
+- task_id
+- message_id
+- error_type
+- error_description
+- failed_agent
+- retryable
+- references
+
+Agents SHOULD distinguish between temporary failures and persistent failures.
+
+Temporary failures MAY be retried.
+
+Persistent or repeated failures SHOULD trigger reassignment, additional verification, or termination of the affected task.
+
+When an agent is replaced, the execution history SHOULD preserve the identity of the previous agent and the reason for replacement.
+
+Recovery actions SHOULD be observable and independently examinable.
+
+The protocol SHOULD avoid making any single agent a permanent point of failure.
