@@ -394,7 +394,7 @@ Example:
   "payload": {},
   "references": []
 }
-
+```
 The `message_type` field SHOULD identify the purpose of the message.
 
 Initial message types MAY include:
