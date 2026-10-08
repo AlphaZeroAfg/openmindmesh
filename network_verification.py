@@ -1,5 +1,6 @@
-from schemas import EvidenceRecord
-from verifier import verify_result
+import requests
+
+from schemas import EvidenceRecord, OMMMessage, MessageType
 
 
 def request_verification(
@@ -7,17 +8,32 @@ def request_verification(
     target_agent_id: str,
     evidence: EvidenceRecord,
 ):
-    print(f"\n[agent-a]")
-    print("  ↓ VERIFY_REQUEST → agent-b")
-
-    result = verify_result(
-        task_id=task_id,
-        target_agent_id=target_agent_id,
-        evidence=evidence,
+    message = OMMMessage(
+        message_id=f"verify-{task_id}",
+        message_type=MessageType.VERIFY_REQUEST,
+        sender="agent-a",
+        receiver=target_agent_id,
+        payload={
+            "task_id": task_id,
+            "evidence": evidence.model_dump(mode="json"),
+        },
     )
 
+    print("\n[agent-a]")
+    print("  ↓ VERIFY_REQUEST → agent-b")
+
+    response = requests.post(
+        "http://localhost:8001/message",
+        json=message.model_dump(mode="json"),
+        timeout=5,
+    )
+
+    response.raise_for_status()
+
+    result = response.json()
+
     print("  ↑ VERIFY_RESULT ← agent-b")
-    print(f"  Outcome: {result.outcome.value}")
+    print(f"  Status: {result['status']}")
 
     return result
 
@@ -39,5 +55,5 @@ if __name__ == "__main__":
         evidence=evidence,
     )
 
-    print("\nVerification completed.")
-    print(result.model_dump_json(indent=2))
+    print("\nNetwork verification completed.")
+    print(result)
