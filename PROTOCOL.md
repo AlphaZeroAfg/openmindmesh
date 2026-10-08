@@ -149,3 +149,19 @@ A reputation system SHOULD consider:
 OpenMindMesh SHOULD avoid requiring a single global reputation authority.
 
 Agents MAY disagree about the reputation of another agent.
+
+## 8. Transparency
+
+OpenMindMesh SHOULD favor transparency and inspectability.
+
+Agents SHOULD make their capabilities, claims, evidence, results, and relevant history available to other participating agents whenever possible.
+
+Important interactions SHOULD be observable and independently examinable.
+
+No agent SHOULD have privileged authority to hide information that is necessary for verification.
+
+Transparency does not imply correctness.
+
+Public information MUST still be evaluated through evidence and independent verification.
+
+The protocol SHOULD avoid unnecessary barriers to information exchange between participating agents.
