@@ -50,7 +50,8 @@ Example:
     "python",
     "verification"
   ]
-}Discovery MAY use centralized directories, peer-to-peer networks, DHTs, or other mechanisms.
+}
+Discovery MAY use centralized directories, peer-to-peer networks, DHTs, or other mechanisms.
 
 OpenMindMesh does not require a single discovery mechanism.
 
