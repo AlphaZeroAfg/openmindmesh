@@ -502,3 +502,40 @@ The protocol SHOULD avoid requiring a single permanent network gateway or centra
 Transport mechanisms SHOULD preserve message integrity and provide sufficient information to associate received messages with their claimed sender.
 
 OpenMindMesh MAY define additional transport profiles for interoperability between implementations.
+
+## 19. Agent Discovery
+
+Agents SHOULD be able to discover other agents that participate in OpenMindMesh.
+
+An agent discovery record MAY contain:
+
+- agent_id
+- public_key
+- capabilities
+- endpoint
+- supported_transport
+- protocol_version
+- availability
+- version
+- last_updated
+
+Discovery MAY use:
+
+- decentralized peer discovery
+- distributed hash tables
+- discovery services
+- direct exchange of agent specifications
+- relay nodes
+- other compatible mechanisms
+
+No single discovery service MUST be required for the network to operate.
+
+Agents MAY advertise their own specifications to other agents.
+
+Agents SHOULD be able to request the specification of another known agent.
+
+Discovery records SHOULD be verifiable and SHOULD include enough information to determine whether the record is current.
+
+Agents SHOULD be able to detect outdated or invalid discovery records.
+
+An agent MAY publish multiple endpoints or
