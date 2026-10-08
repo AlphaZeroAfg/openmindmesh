@@ -3,7 +3,12 @@ from pydantic import BaseModel
 from typing import Any, Dict
 
 from crypto import verify_signature
-from schemas import OMMMessage, MessageType
+from schemas import (
+    OMMMessage,
+    MessageType,
+    EvidenceRecord,
+    VerificationOutcome,
+)
 
 
 app = FastAPI(title="OpenMindMesh Agent")
@@ -46,11 +51,11 @@ def receive_task(task: TaskRequest):
 
 @app.post("/message")
 def receive_message(message: OMMMessage):
+    message_data = message.model_dump(mode="json")
+    signature = message_data.pop("signature", None)
+
     if message.message_type == MessageType.TASK_ASSIGN:
         public_key = message.payload["sender_public_key"]
-
-        message_data = message.model_dump(mode="json")
-        signature = message_data.pop("signature", None)
 
         valid = verify_signature(
             message_data,
@@ -72,6 +77,25 @@ def receive_message(message: OMMMessage):
             "receiver": message.receiver,
             "signature_valid": True,
             "message": "TASK_ASSIGN verified successfully",
+        }
+
+    if message.message_type == MessageType.VERIFY_REQUEST:
+        evidence = EvidenceRecord(
+            **message.payload["evidence"]
+        )
+
+        if evidence.uncertainty_score <= 0.5:
+            outcome = VerificationOutcome.VERIFIED
+        else:
+            outcome = VerificationOutcome.UNCERTAIN
+
+        return {
+            "status": "verified",
+            "message_type": MessageType.VERIFY_RESULT,
+            "task_id": message.payload["task_id"],
+            "target_agent_id": message.sender,
+            "outcome": outcome.value,
+            "evidence_check": evidence.model_dump(mode="json"),
         }
 
     return {
