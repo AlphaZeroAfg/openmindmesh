@@ -394,3 +394,22 @@ Example:
   "payload": {},
   "references": []
 }
+
+The `message_type` field SHOULD identify the purpose of the message.
+
+Initial message types MAY include:
+
+- TASK
+- RESULT
+- EVIDENCE
+- VERIFY
+- CHALLENGE
+- CAPABILITY
+- STATUS
+- ERROR
+
+Agents MAY define additional message types while preserving compatibility with the core protocol.
+
+Unknown message types SHOULD be safely ignored or reported as unsupported rather than causing protocol failure.
+
+Messages SHOULD be versioned so that future protocol versions can evolve without breaking existing implementations.
