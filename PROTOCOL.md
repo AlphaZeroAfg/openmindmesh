@@ -71,6 +71,7 @@ A task SHOULD contain:
 Example:
 
 ```json
+]
 {
   "type": "TASK",
   "task_id": "example-001",
