@@ -82,7 +82,6 @@ Example:
 }
 ```
 
-```text
 ## 5. Evidence
 
 Agents SHOULD distinguish between:
