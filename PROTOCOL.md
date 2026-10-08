@@ -826,3 +826,39 @@ The network SHOULD support agents with different levels of computational capacit
 A resource-constrained agent SHOULD still be able to participate in tasks that match its available capabilities and resources.
 
 Resource management SHOULD NOT require a permanent central resource coordinator.
+
+## 27. Authorization and Action Control
+
+OpenMindMesh SHOULD allow agents to determine whether another agent is authorized to perform a requested protocol action.
+
+Authorization MAY be based on:
+
+- agent identity
+- declared capabilities
+- task assignment
+- message context
+- delegation
+- applicable protocol rules
+- explicit permissions granted by another agent
+
+Authorization SHOULD be evaluated separately from authentication.
+
+Successful authentication MUST NOT automatically imply authorization to perform every action.
+
+An agent MAY delegate authority for a specific task or operation to another agent.
+
+Delegated authority SHOULD be limited to the scope necessary for the delegated task.
+
+Agents SHOULD be able to verify the origin and scope of delegated authority.
+
+An agent SHOULD reject or refuse an action when the required authorization cannot be established.
+
+Authorization decisions SHOULD be observable and independently examinable when they materially affect task execution.
+
+The protocol SHOULD support different authorization policies for different tasks, agents, and operations.
+
+Authorization mechanisms SHOULD NOT require a permanent central authority.
+
+Authorization information SHOULD be represented in a machine-readable form when it is required for automated decision-making.
+
+Changes to relevant authorization or delegation SHOULD be traceable through the event history.
