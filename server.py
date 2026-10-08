@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Any, Dict
 
+from schemas import OMMMessage, MessageType
+
 
 app = FastAPI(title="OpenMindMesh Agent")
 
@@ -41,3 +43,24 @@ def receive_task(task: TaskRequest):
     }
 
     return result
+
+
+@app.post("/message")
+def receive_message(message: OMMMessage):
+    if message.message_type == MessageType.TASK_ASSIGN:
+        return {
+            "status": "received",
+            "protocol": message.protocol,
+            "version": message.version,
+            "message_id": message.message_id,
+            "message_type": message.message_type,
+            "sender": message.sender,
+            "receiver": message.receiver,
+            "payload": message.payload,
+        }
+
+    return {
+        "status": "received",
+        "message_id": message.message_id,
+        "message_type": message.message_type,
+    }
