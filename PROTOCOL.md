@@ -643,3 +643,31 @@ Result synthesis MAY be performed by one agent or by multiple cooperating agents
 No single agent MUST be considered the final authority solely because it performs the synthesis.
 
 Synthesis decisions SHOULD be observable and independently examinable.
+
+## 22. Coordination and Concurrency
+
+OpenMindMesh SHOULD support concurrent execution of tasks by multiple agents.
+
+Agents MAY execute independent tasks or subtasks simultaneously.
+
+Agents SHOULD coordinate when multiple agents need to modify, extend, or contribute to the same task state.
+
+A task MAY define dependencies that determine when an agent can begin execution.
+
+Agents SHOULD avoid unnecessary duplicate execution when the same task is already being processed by a suitable agent.
+
+Duplicate execution MAY be used intentionally for independent verification, redundancy, or fault tolerance.
+
+Agents SHOULD be able to detect conflicting task state updates.
+
+When conflicting updates occur, agents SHOULD preserve the conflicting information and request verification or resolution.
+
+Coordination SHOULD NOT require a permanent central coordinator.
+
+A coordination failure SHOULD NOT permanently block unrelated tasks.
+
+Agents SHOULD support timeouts or other mechanisms that prevent tasks from remaining indefinitely in an active state.
+
+Concurrent execution SHOULD preserve enough information to reconstruct the order and relationships between relevant task events.
+
+The protocol SHOULD support reassignment of coordination responsibilities when the current coordinator becomes unavailable or unreliable.
