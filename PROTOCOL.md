@@ -201,3 +201,35 @@ Agents SHOULD be able to exchange:
 - status updates
 
 Different transport mechanisms MAY be used as long as they support the OpenMindMesh communication model.
+
+## 10. Disagreement and Conflict
+
+Agents MAY produce different results for the same task.
+
+Disagreement MUST NOT be resolved solely by authority, reputation, or majority vote.
+
+When agents disagree, they SHOULD be able to:
+
+- identify the conflicting claims
+- exchange evidence
+- expose assumptions
+- reproduce relevant computations
+- request independent verification
+- identify the source of the disagreement
+- record unresolved disputes
+
+A conflict record MAY contain:
+
+- task_id
+- claims
+- agents involved
+- evidence
+- assumptions
+- verification attempts
+- resolution status
+
+A disagreement MAY remain unresolved when available evidence is insufficient.
+
+The protocol SHOULD preserve unresolved disagreements rather than hiding or deleting them.
+
+Resolved disputes SHOULD retain enough history to allow independent examination of how the resolution was reached.
