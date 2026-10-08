@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Any, Dict
 
+from crypto import verify_signature
 from schemas import OMMMessage, MessageType
 
 
@@ -25,7 +26,7 @@ def health():
 
 @app.post("/task")
 def receive_task(task: TaskRequest):
-    result = {
+    return {
         "status": "completed",
         "task_id": task.task_id,
         "objective": task.objective,
@@ -42,21 +43,34 @@ def receive_task(task: TaskRequest):
         }
     }
 
-    return result
-
 
 @app.post("/message")
 def receive_message(message: OMMMessage):
     if message.message_type == MessageType.TASK_ASSIGN:
+        public_key = message.payload["sender_public_key"]
+
+        message_data = message.model_dump(mode="json")
+
+        valid = verify_signature(
+            message_data,
+            message.signature,
+            public_key,
+        )
+
+        if not valid:
+            return {
+                "status": "rejected",
+                "reason": "Invalid message signature",
+            }
+
         return {
-            "status": "received",
-            "protocol": message.protocol,
-            "version": message.version,
+            "status": "verified",
             "message_id": message.message_id,
             "message_type": message.message_type,
             "sender": message.sender,
             "receiver": message.receiver,
-            "payload": message.payload,
+            "signature_valid": True,
+            "message": "TASK_ASSIGN verified successfully",
         }
 
     return {
