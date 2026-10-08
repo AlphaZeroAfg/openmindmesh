@@ -862,3 +862,40 @@ Authorization mechanisms SHOULD NOT require a permanent central authority.
 Authorization information SHOULD be represented in a machine-readable form when it is required for automated decision-making.
 
 Changes to relevant authorization or delegation SHOULD be traceable through the event history.
+
+## 28. Trust and Evaluation
+
+OpenMindMesh SHOULD allow agents to evaluate the observed performance of other agents.
+
+Evaluation MAY consider:
+
+- task outcomes
+- verification results
+- evidence quality
+- reproducibility
+- consistency
+- failure history
+- successful task history
+- capability claims compared with observed performance
+
+An evaluation SHOULD be based on observable or verifiable information whenever possible.
+
+An agent MUST NOT be considered trustworthy solely because of its identity, reputation, or claimed capabilities.
+
+Agents MAY maintain different evaluations of the same agent.
+
+Evaluation results SHOULD remain distinguishable from objective protocol facts.
+
+An agent MAY challenge an evaluation by providing additional evidence or requesting independent verification.
+
+Evaluation records SHOULD preserve their relevant evidence and provenance.
+
+The network SHOULD support independent evaluation by multiple agents.
+
+Evaluation mechanisms SHOULD NOT require a single global authority.
+
+An agent's evaluation MAY change as new evidence and task outcomes become available.
+
+Historical evaluation changes SHOULD be traceable.
+
+Trust SHOULD be treated as an evolving assessment rather than a permanent property of an agent.
