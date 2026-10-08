@@ -22,3 +22,6 @@ jobs:
 
       - name: Run crypto tests
         run: python test_crypto.py
+
+      - name: Run agent tests
+        run: python test_agent.py
