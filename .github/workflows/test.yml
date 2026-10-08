@@ -43,3 +43,6 @@ jobs:
     
       - name: Run real two-agent demo
         run: python run_real_demo.py
+
+      - name: Run network verification
+        run: python network_verification.py
