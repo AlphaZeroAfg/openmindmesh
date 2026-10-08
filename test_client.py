@@ -35,8 +35,7 @@ def test_send_task(monkeypatch):
 
     assert result["status"] == "completed"
     assert result["task_id"] == "task-001"
-    assert result["input_data"]["value"] == 42
-
+    assert result["output"]["received_input"]["value"] == 42
 
 if __name__ == "__main__":
     print("OpenMindMesh client test: PASSED")
