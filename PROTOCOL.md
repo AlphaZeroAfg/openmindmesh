@@ -597,3 +597,49 @@ The task graph SHOULD preserve enough information to reconstruct how the final r
 A task graph MAY be distributed across multiple agents.
 
 No single agent MUST maintain the complete task graph for the entire network.
+
+## 21. Result Synthesis
+
+OpenMindMesh SHOULD support combining results produced by multiple agents.
+
+A synthesized result SHOULD reference the tasks, subtasks, agents, evidence, and verification results that contributed to it.
+
+A result MAY contain:
+
+- task_id
+- result_id
+- contributing_agents
+- source_results
+- evidence
+- verification_results
+- conflicts
+- synthesis_method
+- confidence
+- status
+
+Agents MAY produce alternative results for the same task.
+
+Alternative results SHOULD remain distinguishable until they have been independently evaluated.
+
+A synthesis process SHOULD NOT discard materially different results without recording the reason.
+
+The synthesis process MAY:
+
+- compare results
+- identify agreements
+- identify contradictions
+- evaluate evidence
+- request additional verification
+- combine compatible results
+- select one result when evidence supports doing so
+- preserve multiple unresolved results
+
+A final result SHOULD indicate whether significant disagreements remain unresolved.
+
+The final result SHOULD remain traceable to the underlying task graph.
+
+Result synthesis MAY be performed by one agent or by multiple cooperating agents.
+
+No single agent MUST be considered the final authority solely because it performs the synthesis.
+
+Synthesis decisions SHOULD be observable and independently examinable.
