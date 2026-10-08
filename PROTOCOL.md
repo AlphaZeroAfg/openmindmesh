@@ -1156,3 +1156,41 @@ Network resilience SHOULD emerge from distributed verification, redundancy, reas
 No permanent central authority MUST be required to detect or respond to unreliable agent behavior.
 
 Resilience mechanisms SHOULD remain compatible with decentralized operation and independent implementations.
+
+## 35. Observability and Network State
+
+OpenMindMesh SHOULD provide mechanisms for observing the state and activity of participating agents and tasks.
+
+Agents SHOULD be able to observe relevant information such as:
+
+- agent availability
+- agent capabilities
+- task status
+- task assignments
+- execution progress
+- verification status
+- failures
+- conflicts
+- reassignment
+- network connectivity
+- protocol compatibility
+
+Observable network information SHOULD be distinguishable from interpretations or evaluations made by individual agents.
+
+Agents MAY maintain local observations of network state.
+
+Different agents MAY have different observations when information is delayed, unavailable, or inconsistent.
+
+The protocol SHOULD allow agents to exchange observations when those observations are relevant to coordination or verification.
+
+Important state changes SHOULD produce traceable events when practical.
+
+Agents SHOULD be able to determine whether observed information is current, stale, incomplete, or uncertain when this information is available.
+
+Network state SHOULD NOT require a single central system to maintain a complete and authoritative representation of the entire network.
+
+Observability mechanisms SHOULD support decentralized operation and multiple independent implementations.
+
+When conflicting observations exist, the conflicting information SHOULD remain distinguishable until independently evaluated or resolved.
+
+Observability SHOULD help agents make coordination, verification, recovery, and reassignment decisions without requiring a permanent central authority.
