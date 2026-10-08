@@ -545,3 +545,55 @@ Agents SHOULD be able to continue operating when one discovery mechanism becomes
 Discovery mechanisms SHOULD NOT change the meaning or structure of OpenMindMesh messages.
 
 The network SHOULD support the addition and removal of agents without requiring a central authority.
+
+## 20. Task Graph
+
+OpenMindMesh SHOULD represent complex tasks as a graph of related tasks and subtasks.
+
+Each task SHOULD have a unique task_id.
+
+Each subtask SHOULD reference its parent task.
+
+A task MAY contain:
+
+- task_id
+- parent_task_id
+- objective
+- required_capabilities
+- assigned_agents
+- dependencies
+- status
+- inputs
+- outputs
+- evidence
+- verification_results
+
+Tasks MAY depend on other tasks.
+
+A task SHOULD NOT be marked complete until its required dependencies have completed or have been explicitly marked as failed or unnecessary.
+
+Independent subtasks SHOULD be executable in parallel when appropriate.
+
+Agents MAY create additional subtasks when required to complete a task.
+
+Agents SHOULD be able to observe the status of tasks relevant to their work.
+
+Task state changes SHOULD be recorded and traceable.
+
+Possible task states MAY include:
+
+- CREATED
+- DISCOVERING
+- ASSIGNED
+- RUNNING
+- WAITING
+- VERIFYING
+- COMPLETED
+- FAILED
+- CANCELLED
+
+The task graph SHOULD preserve enough information to reconstruct how the final result was produced.
+
+A task graph MAY be distributed across multiple agents.
+
+No single agent MUST maintain the complete task graph for the entire network.
