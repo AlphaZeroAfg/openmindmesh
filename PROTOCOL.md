@@ -81,3 +81,29 @@ Example:
   "verification": "independent"
 }
 ```
+
+```text
+## 5. Evidence
+
+Agents SHOULD distinguish between:
+
+- direct observations
+- retrieved information
+- computations
+- inferences
+- speculation
+
+Important claims SHOULD include evidence that another agent can inspect or verify.
+
+An evidence record MAY contain:
+
+- claim
+- evidence
+- source
+- method
+- tool
+- uncertainty
+
+Confidence is not proof.
+
+An agent SHOULD clearly distinguish what it knows, what it calculated, what it inferred, and what remains uncertain.
