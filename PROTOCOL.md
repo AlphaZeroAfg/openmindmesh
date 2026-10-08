@@ -471,3 +471,34 @@ When an agent is replaced, the execution history SHOULD preserve the identity of
 Recovery actions SHOULD be observable and independently examinable.
 
 The protocol SHOULD avoid making any single agent a permanent point of failure.
+
+## 18. Network Transport
+
+OpenMindMesh SHOULD support multiple network transport mechanisms.
+
+Agents MAY communicate using:
+
+- direct peer-to-peer connections
+- HTTP or HTTPS
+- WebSocket
+- relay nodes
+- decentralized overlay networks
+- other compatible transport mechanisms
+
+The transport layer MUST NOT change the meaning of OpenMindMesh messages.
+
+The protocol message structure SHOULD remain independent from the underlying transport.
+
+Agents SHOULD advertise which transport mechanisms they support.
+
+An agent MAY support multiple transport mechanisms simultaneously.
+
+A connection failure SHOULD NOT be treated as a failure of the agent itself when another supported transport is available.
+
+Agents SHOULD be able to discover alternative connection paths when direct communication is unavailable.
+
+The protocol SHOULD avoid requiring a single permanent network gateway or central communication server.
+
+Transport mechanisms SHOULD preserve message integrity and provide sufficient information to associate received messages with their claimed sender.
+
+OpenMindMesh MAY define additional transport profiles for interoperability between implementations.
