@@ -927,3 +927,51 @@ An agent MAY reject a task when its capabilities, resources, or supported protoc
 Optional or preferred requirements MAY be used to rank otherwise suitable agents.
 
 Task requirements SHOULD remain associated with the task throughout
+
+## 30. Decentralized Agent Selection
+
+OpenMindMesh SHOULD support decentralized selection of agents for tasks.
+
+Agent selection MAY consider:
+
+- required capabilities
+- preferred capabilities
+- resource availability
+- task requirements
+- previous performance
+- verification history
+- current workload
+- response time
+- network availability
+
+Selection SHOULD NOT depend on a permanent central authority.
+
+A requesting agent MAY select another agent directly when the task does not require multiple candidates.
+
+For tasks requiring multiple candidates, several agents MAY propose or evaluate suitable agents.
+
+Agents SHOULD be able to compare selection proposals using observable information.
+
+An agent MAY reject a proposed assignment when the task requirements are not satisfied.
+
+Selection decisions SHOULD preserve the relevant criteria and information used to make the decision.
+
+When multiple suitable agents are available, the protocol MAY use different selection strategies, including:
+
+- capability matching
+- resource-aware selection
+- randomized selection
+- reputation-informed selection
+- competitive selection
+- cooperative selection
+- decentralized voting or ranking
+
+No single selection strategy MUST be required for every task.
+
+Selection mechanisms SHOULD avoid systematically preventing new agents from participating when they satisfy the required task constraints.
+
+Selection outcomes SHOULD be traceable to the agents, requirements, and evidence relevant to the decision.
+
+A selection decision MAY be challenged when an agent can provide evidence that the selected agent does not satisfy the task requirements.
+
+The network SHOULD support reassignment when the selected agent becomes unavailable, fails, or no longer satisfies the task requirements.
