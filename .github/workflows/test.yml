@@ -25,3 +25,6 @@ jobs:
 
       - name: Run agent tests
         run: python test_agent.py
+
+      - name: Run server tests
+        run: python test_server.py
