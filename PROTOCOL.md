@@ -42,6 +42,7 @@ An agent MAY publish the capabilities it offers.
 Example:
 
 ```json
+]
 {
   "agent_id": "example-agent",
   "protocol_version": "0.1",
