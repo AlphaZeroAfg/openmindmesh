@@ -787,3 +787,42 @@ Selection decisions SHOULD be observable and independently examinable.
 The network SHOULD support multiple agents with overlapping capabilities.
 
 Capability matching SHOULD allow new agents to participate without requiring manual registration with a central authority.
+
+## 26. Resource and Load Management
+
+OpenMindMesh SHOULD allow agents to declare their current availability and resource capacity.
+
+An agent MAY publish resource information such as:
+
+- availability
+- current workload
+- task capacity
+- computational capacity
+- memory capacity
+- estimated response time
+- supported concurrency
+
+Resource information MAY be approximate and SHOULD be treated as a current estimate rather than a guarantee.
+
+Agents SHOULD be able to update their resource status when their availability or workload changes.
+
+Task assignment SHOULD consider resource availability when appropriate.
+
+An agent SHOULD NOT be assigned more concurrent work than it can reasonably handle when reliable capacity information is available.
+
+Agents MAY reject or defer tasks when their available resources are insufficient.
+
+Resource-aware coordination MAY be performed by:
+
+- the requesting agent
+- a coordinating agent
+- multiple cooperating agents
+- a decentralized selection mechanism
+
+Resource information SHOULD be observable and independently examinable when it is used to justify task assignment.
+
+The network SHOULD support agents with different levels of computational capacity.
+
+A resource-constrained agent SHOULD still be able to participate in tasks that match its available capabilities and resources.
+
+Resource management SHOULD NOT require a permanent central resource coordinator.
