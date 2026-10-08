@@ -2,11 +2,14 @@ import uuid
 
 import requests
 
+from crypto import generate_keypair, sign_omm_message
 from schemas import OMMMessage, MessageType
 
 
 if __name__ == "__main__":
     print("OpenMindMesh Agent A starting...")
+
+    private_key, public_key = generate_keypair()
 
     message = OMMMessage(
         message_id=str(uuid.uuid4()),
@@ -14,15 +17,23 @@ if __name__ == "__main__":
         sender="agent-a",
         receiver="agent-b",
         payload={
-            "task_id": "task-real-002",
-            "objective": "Test real OpenMindMesh protocol communication",
+            "task_id": "task-real-003",
+            "objective": "Test signed OpenMindMesh communication",
             "input_data": {
-                "message": "Hello from Agent A"
+                "message": "Hello from signed Agent A"
             },
+            "sender_public_key": public_key,
         },
     )
 
-    print("\n[A] → TASK_ASSIGN → [B]")
+    message_data = message.model_dump(mode="json")
+
+    message.signature = sign_omm_message(
+        message_data,
+        private_key,
+    )
+
+    print("\n[A] → SIGNED TASK_ASSIGN → [B]")
 
     response = requests.post(
         "http://localhost:8001/message",
@@ -35,4 +46,4 @@ if __name__ == "__main__":
     print("[A] ← RESPONSE ← [B]")
     print(response.json())
 
-    print("\nOpenMindMesh protocol message: PASSED")
+    print("\nOpenMindMesh signed message: SENT")
