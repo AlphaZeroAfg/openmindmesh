@@ -37,3 +37,6 @@ jobs:
 
       - name: Run network tests
         run: python test_network.py
+
+      - name: Run full cycle tests
+        run: python test_full_cycle.py
