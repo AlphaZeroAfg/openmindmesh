@@ -1021,3 +1021,36 @@ Implementations MAY support experimental features before they become part of a s
 Protocol evolution SHOULD preserve interoperability whenever practical.
 
 No permanent central authority MUST be required to propose, review, or evolve the protocol.
+
+## 32. Interoperability and Implementation Requirements
+
+OpenMindMesh implementations SHOULD provide enough information to allow independent implementations to communicate with each other.
+
+An implementation SHOULD document:
+
+- supported protocol version
+- supported message types
+- supported transport mechanisms
+- supported capabilities
+- supported optional features
+- implementation-specific limitations
+
+Implementations SHOULD use the standard message structures defined by the protocol when communicating with other implementations.
+
+An implementation MAY provide additional features that are not part of the core protocol.
+
+Additional features SHOULD NOT change the meaning of standard protocol messages.
+
+Implementations SHOULD clearly identify unsupported required features when interoperability is not possible.
+
+Agents SHOULD be able to determine the capabilities and protocol features supported by another implementation before relying on them.
+
+Interoperability SHOULD be tested using reproducible examples and test cases when practical.
+
+A conforming implementation SHOULD NOT require another implementation to use the same software, model, programming language, operating system, or infrastructure.
+
+OpenMindMesh SHOULD support multiple independent implementations.
+
+No single implementation MUST be considered the reference authority for protocol correctness.
+
+Interoperability failures SHOULD be observable, diagnosable, and traceable when possible.
