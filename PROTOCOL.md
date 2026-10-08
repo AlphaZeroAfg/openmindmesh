@@ -538,4 +538,12 @@ Discovery records SHOULD be verifiable and SHOULD include enough information to 
 
 Agents SHOULD be able to detect outdated or invalid discovery records.
 
-An agent MAY publish multiple endpoints or
+An agent MAY publish multiple endpoints or invalid discovery records.
+
+An agent MAY publish multiple endpoints or transport mechanisms.
+
+Agents SHOULD be able to continue operating when one discovery mechanism becomes unavailable.
+
+Discovery mechanisms SHOULD NOT change the meaning or structure of OpenMindMesh messages.
+
+The network SHOULD support the addition and removal of agents without requiring a central authority.
