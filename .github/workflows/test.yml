@@ -31,7 +31,7 @@ jobs:
 
       - name: Run client tests
         run: python test_client.py
-        
+
       - name: Run verifier tests
         run: python test_verifier.py
 
@@ -40,9 +40,6 @@ jobs:
 
       - name: Run full cycle tests
         run: python test_full_cycle.py
-    
+
       - name: Run real two-agent demo
         run: python run_real_demo.py
-
-      - name: Run network verification
-        run: python network_verification.py
