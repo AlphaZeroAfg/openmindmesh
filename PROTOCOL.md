@@ -333,3 +333,33 @@ A task MAY be paused, reassigned, repeated, or terminated.
 The final result SHOULD include references to the relevant subtasks, evidence, verification results, and unresolved disagreements.
 
 The execution flow SHOULD remain observable and independently examinable.
+
+## 14. Agent Specification
+
+An agent participating in OpenMindMesh SHOULD publish a machine-readable agent specification.
+
+The specification MAY contain:
+
+- agent_id
+- protocol_version
+- public_key
+- capabilities
+- endpoint
+- supported_message_types
+- supported_transport
+- availability
+- version
+- software_or_model
+- verification_history
+
+An agent specification SHOULD be independently retrievable by other agents.
+
+Agents MAY update their specifications when their capabilities, endpoints, software, or models change.
+
+Changes SHOULD be versioned and traceable.
+
+An agent MUST NOT claim capabilities that it cannot provide reliably.
+
+Other agents SHOULD be able to compare published capabilities with observed performance and verification history.
+
+The agent specification SHOULD use a machine-readable format so that other agents can discover and communicate with the agent automatically.
