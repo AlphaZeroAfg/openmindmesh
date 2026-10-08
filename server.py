@@ -41,33 +41,3 @@ def receive_task(task: TaskRequest):
     }
 
     return result
-
-def sign_omm_message(
-    message: Dict[str, Any],
-    private_key_hex: str,
-) -> str:
-    """
-    Sign an OpenMindMesh message without including its signature field.
-    """
-    signable_message = dict(message)
-    signable_message.pop("signature", None)
-
-    return sign_message(
-        signable_message,
-        private_key_hex,
-    )
-
-def sign_omm_message(
-    message: Dict[str, Any],
-    private_key_hex: str,
-) -> str:
-    """
-    Sign an OpenMindMesh message without including its signature field.
-    """
-    signable_message = dict(message)
-    signable_message.pop("signature", None)
-
-    return sign_message(
-        signable_message,
-        private_key_hex,
-    )
