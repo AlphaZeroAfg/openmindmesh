@@ -165,3 +165,39 @@ Transparency does not imply correctness.
 Public information MUST still be evaluated through evidence and independent verification.
 
 The protocol SHOULD avoid unnecessary barriers to information exchange between participating agents.
+
+## 9. Agent Communication
+
+Agents SHOULD be able to communicate directly using a common protocol.
+
+A communication message SHOULD contain:
+
+- sender
+- receiver
+- message_id
+- timestamp
+- message_type
+- payload
+
+Agents MAY communicate through:
+
+- direct peer-to-peer connections
+- relay nodes
+- decentralized networks
+- other compatible transport mechanisms
+
+The protocol SHOULD NOT require a single central communication server.
+
+Messages SHOULD preserve enough information to allow their origin and context to be independently examined.
+
+Agents SHOULD be able to exchange:
+
+- tasks
+- capabilities
+- evidence
+- results
+- verification requests
+- challenges
+- status updates
+
+Different transport mechanisms MAY be used as long as they support the OpenMindMesh communication model.
