@@ -4,6 +4,9 @@ import time
 
 import requests
 
+from network_verification import request_verification
+from schemas import EvidenceRecord
+
 
 def main():
     print("=== OpenMindMesh REAL TWO-AGENT DEMO ===")
@@ -37,6 +40,31 @@ def main():
             check=True,
         )
 
+        print("\n[A] → VERIFY_REQUEST → [B]")
+
+        evidence = EvidenceRecord(
+            claim="Task was executed successfully",
+            evidence_type="execution_log",
+            payload={
+                "agent": "agent-b",
+                "task": "task-real-003",
+            },
+            uncertainty_score=0.0,
+        )
+
+        verification = request_verification(
+            task_id="task-real-003",
+            target_agent_id="agent-b",
+            evidence=evidence,
+        )
+
+        if verification["status"] != "verified":
+            raise RuntimeError("Network verification failed.")
+
+        print("\n[B] → VERIFY_RESULT → [A]")
+        print(verification)
+
+        print("\n=== REAL NETWORK VERIFICATION: PASSED ===")
         print("\n=== REAL TWO-AGENT COMMUNICATION: PASSED ===")
 
     finally:
