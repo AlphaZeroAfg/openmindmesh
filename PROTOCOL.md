@@ -363,3 +363,34 @@ An agent MUST NOT claim capabilities that it cannot provide reliably.
 Other agents SHOULD be able to compare published capabilities with observed performance and verification history.
 
 The agent specification SHOULD use a machine-readable format so that other agents can discover and communicate with the agent automatically.
+
+## 15. Message Format
+
+OpenMindMesh messages SHOULD use a common machine-readable structure.
+
+A message SHOULD contain:
+
+- protocol
+- version
+- message_id
+- message_type
+- sender
+- receiver
+- timestamp
+- payload
+- references
+
+Example:
+
+```json
+{
+  "protocol": "OpenMindMesh",
+  "version": "0.1",
+  "message_id": "msg-001",
+  "message_type": "TASK",
+  "sender": "agent-a",
+  "receiver": "agent-b",
+  "timestamp": "2026-01-01T00:00:00Z",
+  "payload": {},
+  "references": []
+}
