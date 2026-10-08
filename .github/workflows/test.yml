@@ -40,3 +40,6 @@ jobs:
 
       - name: Run full cycle tests
         run: python test_full_cycle.py
+    
+      - name: Run real two-agent demo
+        run: python run_real_demo.py
