@@ -1054,3 +1054,62 @@ OpenMindMesh SHOULD support multiple independent implementations.
 No single implementation MUST be considered the reference authority for protocol correctness.
 
 Interoperability failures SHOULD be observable, diagnosable, and traceable when possible.
+
+## 33. Conformance and Testing
+
+OpenMindMesh SHOULD define clear requirements for determining whether an implementation conforms to the protocol.
+
+A conforming implementation SHOULD:
+
+- support the required message structures
+- correctly process required message types
+- preserve required protocol semantics
+- expose its supported protocol version
+- correctly handle unsupported optional features
+- correctly reject or report invalid required messages
+- preserve required task and result relationships
+- support verification of message integrity when applicable
+
+Conformance SHOULD be evaluated using reproducible tests.
+
+Test cases SHOULD cover:
+
+- message creation
+- message parsing
+- message validation
+- agent discovery
+- capability matching
+- task delegation
+- task execution
+- result exchange
+- evidence exchange
+- independent verification
+- failure handling
+- reassignment
+- protocol version compatibility
+- interoperability
+
+Tests SHOULD include both valid and invalid protocol interactions.
+
+Implementations SHOULD publish sufficient test information to allow other implementations to reproduce interoperability tests.
+
+A test result SHOULD identify:
+
+- implementation
+- protocol version
+- test case
+- input
+- expected behavior
+- observed behavior
+- result
+- relevant errors
+
+Conformance MUST NOT depend solely on claiming compatibility.
+
+An implementation SHOULD be considered conformant only when it satisfies the applicable protocol requirements through observable or reproducible behavior.
+
+No single implementation MUST be treated as the permanent authority for determining conformance.
+
+The protocol SHOULD support independent conformance testing by multiple implementations or agents.
+
+Conformance results SHOULD remain traceable and SHOULD be updated when an implementation changes in a way that may affect compatibility.
