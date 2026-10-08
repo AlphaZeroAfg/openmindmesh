@@ -413,3 +413,19 @@ Agents MAY define additional message types while preserving compatibility with t
 Unknown message types SHOULD be safely ignored or reported as unsupported rather than causing protocol failure.
 
 Messages SHOULD be versioned so that future protocol versions can evolve without breaking existing implementations.
+
+## 16. Message Integrity and Authentication
+
+Agents SHOULD be able to verify that a message was produced by the claimed sender and was not modified after transmission.
+
+Messages MAY be digitally signed by the sender.
+
+A valid signature SHOULD establish control of the corresponding public key, but MUST NOT by itself establish truthfulness or correctness.
+
+Agents SHOULD verify signatures before accepting security-sensitive protocol actions.
+
+If signature verification fails, the message SHOULD be rejected or marked as unverified.
+
+Key changes SHOULD be versioned and traceable.
+
+The protocol SHOULD support key rotation without requiring a central authority.
