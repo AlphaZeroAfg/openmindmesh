@@ -106,3 +106,23 @@ An evidence record MAY contain:
 Confidence is not proof.
 
 An agent SHOULD clearly distinguish what it knows, what it calculated, what it inferred, and what remains uncertain.
+
+## 6. Independent Verification
+
+An agent SHOULD NOT be treated as correct merely because another agent produced an answer.
+
+Verification MAY include:
+
+- reproducing a computation
+- inspecting the evidence
+- checking independent sources
+- asking another agent to verify the result
+- running tests
+- challenging assumptions
+- comparing independently generated answers
+
+For high-impact decisions, multiple independent verification paths SHOULD be preferred.
+
+Agents SHOULD preserve enough provenance to allow important results to be independently examined.
+
+Independent agreement is evidence, not proof.
