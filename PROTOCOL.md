@@ -51,6 +51,7 @@ Example:
     "verification"
   ]
 }
+```
 Discovery MAY use centralized directories, peer-to-peer networks, DHTs, or other mechanisms.
 
 OpenMindMesh does not require a single discovery mechanism.
@@ -78,4 +79,5 @@ Example:
   "required_capabilities": ["mathematical_reasoning"],
   "privacy": "do_not_share_raw_user_data",
   "verification": "independent"
+```
 }
