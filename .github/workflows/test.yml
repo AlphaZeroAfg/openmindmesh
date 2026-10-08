@@ -28,3 +28,6 @@ jobs:
 
       - name: Run server tests
         run: python test_server.py
+
+      - name: Run client tests
+        run: python test_client.py
