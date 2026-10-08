@@ -899,3 +899,31 @@ An agent's evaluation MAY change as new evidence and task outcomes become availa
 Historical evaluation changes SHOULD be traceable.
 
 Trust SHOULD be treated as an evolving assessment rather than a permanent property of an agent.
+
+## 29. Task Requirements and Constraints
+
+OpenMindMesh SHOULD allow tasks to declare requirements and operational constraints.
+
+A task MAY specify:
+
+- required capabilities
+- preferred capabilities
+- required protocol version
+- required message types
+- maximum execution time
+- expected response time
+- resource requirements
+- concurrency requirements
+- verification requirements
+- evidence requirements
+- output requirements
+
+Task constraints SHOULD be machine-readable when they are used for automated coordination.
+
+Agents SHOULD evaluate task requirements before accepting an assignment.
+
+An agent MAY reject a task when its capabilities, resources, or supported protocol features do not satisfy the required constraints.
+
+Optional or preferred requirements MAY be used to rank otherwise suitable agents.
+
+Task requirements SHOULD remain associated with the task throughout
