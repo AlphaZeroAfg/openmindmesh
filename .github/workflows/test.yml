@@ -32,5 +32,5 @@ jobs:
       - name: Run client tests
         run: python test_client.py
         
-- name: Run verifier tests
-  run: python test_verifier.py
+      - name: Run verifier tests
+        run: python test_verifier.py
