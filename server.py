@@ -50,10 +50,11 @@ def receive_message(message: OMMMessage):
         public_key = message.payload["sender_public_key"]
 
         message_data = message.model_dump(mode="json")
+        signature = message_data.pop("signature", None)
 
         valid = verify_signature(
             message_data,
-            message.signature,
+            signature,
             public_key,
         )
 
