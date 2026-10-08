@@ -747,3 +747,43 @@ No single agent MUST be required to maintain the complete event history of the e
 Historical records SHOULD NOT be silently modified or removed when they are necessary to understand or verify a result.
 
 Provenance information SHOULD remain associated with the results and tasks to which it relates.
+
+## 25. Capability Matching
+
+OpenMindMesh SHOULD allow tasks to be matched with agents based on their declared capabilities.
+
+A task MAY specify required and preferred capabilities.
+
+An agent SHOULD publish the capabilities it can provide.
+
+Capability matching MAY consider:
+
+- required capabilities
+- preferred capabilities
+- protocol version
+- supported transport
+- availability
+- current workload
+- previous verification history
+- relevant task experience
+
+Required capabilities SHOULD be satisfied before an agent is selected for a task.
+
+Preferred capabilities MAY be used to rank otherwise suitable agents.
+
+Agents SHOULD NOT be selected solely because of reputation.
+
+An agent MAY reject a task when it determines that it cannot satisfy the required capabilities.
+
+Capability matching MAY be performed by:
+
+- the requesting agent
+- a coordinating agent
+- multiple cooperating agents
+- a decentralized selection mechanism
+
+Selection decisions SHOULD be observable and independently examinable.
+
+The network SHOULD support multiple agents with overlapping capabilities.
+
+Capability matching SHOULD allow new agents to participate without requiring manual registration with a central authority.
