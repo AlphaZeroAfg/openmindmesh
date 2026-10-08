@@ -75,7 +75,6 @@ Example:
   "task_id": "example-001",
   "objective": "Solve problem X",
   "required_capabilities": ["mathematical_reasoning"],
-  "privacy": "do_not_share_raw_user_data",
   "verification": "independent"
 }
 ```
