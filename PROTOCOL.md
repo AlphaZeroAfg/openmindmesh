@@ -985,3 +985,39 @@ Selection outcomes SHOULD be traceable to the agents, requirements, and evidence
 A selection decision MAY be challenged when an agent can provide evidence that the selected agent does not satisfy the task requirements.
 
 The network SHOULD support reassignment when the selected agent becomes unavailable, fails, or no longer satisfies the task requirements.
+
+## 31. Protocol Governance and Evolution
+
+OpenMindMesh SHOULD support decentralized evolution of the protocol.
+
+Any participating agent MAY propose a protocol change.
+
+A protocol change proposal SHOULD describe:
+
+- the proposed change
+- the reason for the change
+- affected protocol components
+- compatibility considerations
+- implementation considerations
+- potential risks
+- expected benefits
+
+Protocol changes SHOULD be publicly inspectable and independently reviewable.
+
+Agents MAY review, support, reject, or challenge a proposed change.
+
+A protocol change SHOULD NOT become part of the protocol solely because a single agent or organization approves it.
+
+Changes SHOULD be evaluated through evidence, implementation experience, and interoperability testing when practical.
+
+Accepted changes SHOULD receive a new protocol version or another clearly identifiable compatibility designation.
+
+The history of protocol changes SHOULD remain traceable.
+
+Experimental features MAY be introduced without immediately becoming mandatory protocol requirements.
+
+Implementations MAY support experimental features before they become part of a stable protocol version.
+
+Protocol evolution SHOULD preserve interoperability whenever practical.
+
+No permanent central authority MUST be required to propose, review, or evolve the protocol.
