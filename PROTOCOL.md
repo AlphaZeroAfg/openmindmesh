@@ -50,4 +50,31 @@ Example:
     "python",
     "verification"
   ]
+}Discovery MAY use centralized directories, peer-to-peer networks, DHTs, or other mechanisms.
+
+OpenMindMesh does not require a single discovery mechanism.
+
+## 4. Task Delegation
+
+An agent MAY delegate a task to another agent.
+
+A task SHOULD contain:
+
+- objective
+- constraints
+- required capabilities
+- privacy requirements
+- evidence requirements
+- verification requirements
+
+Example:
+
+```json
+{
+  "type": "TASK",
+  "task_id": "example-001",
+  "objective": "Solve problem X",
+  "required_capabilities": ["mathematical_reasoning"],
+  "privacy": "do_not_share_raw_user_data",
+  "verification": "independent"
 }
