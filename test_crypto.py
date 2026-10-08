@@ -2,6 +2,7 @@ from crypto import (
     canonical_json,
     generate_keypair,
     sign_message,
+    sign_omm_message,
     verify_signature,
 )
 
@@ -19,24 +20,28 @@ def test_crypto():
         "payload": {
             "objective": "test message"
         },
+        "signature": None,
     }
 
     # Canonical JSON must be deterministic
     canonical = canonical_json(message)
     assert isinstance(canonical, bytes)
 
-    # Sign the message
-    signature = sign_message(message, private_key)
+    # Sign the OpenMindMesh message without its signature field
+    signature = sign_omm_message(message, private_key)
 
-    # Verify the original message
+    # Verify the message without its signature field
+    signable_message = dict(message)
+    signable_message.pop("signature")
+
     assert verify_signature(
-        message,
+        signable_message,
         signature,
         public_key,
     )
 
     # Modified message must fail verification
-    modified_message = dict(message)
+    modified_message = dict(signable_message)
     modified_message["receiver"] = "agent-c"
 
     assert not verify_signature(
