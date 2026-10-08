@@ -1194,3 +1194,52 @@ Observability mechanisms SHOULD support decentralized operation and multiple ind
 When conflicting observations exist, the conflicting information SHOULD remain distinguishable until independently evaluated or resolved.
 
 Observability SHOULD help agents make coordination, verification, recovery, and reassignment decisions without requiring a permanent central authority.
+
+## 36. Minimal Interoperable Core
+
+OpenMindMesh SHOULD define a minimal interoperable core that allows independent implementations to participate in the network without implementing every optional feature.
+
+The minimal core SHOULD include support for:
+
+- agent identification
+- protocol version identification
+- capability declaration
+- task creation
+- task delegation
+- result exchange
+- evidence exchange
+- verification requests
+- status reporting
+- error reporting
+- message integrity
+- basic event provenance
+
+An implementation MAY support additional protocol features without implementing every optional mechanism.
+
+Agents SHOULD be able to determine which required core features another implementation supports before assigning tasks or exchanging protocol messages.
+
+A minimal implementation SHOULD be able to:
+
+1. identify itself
+2. discover or communicate with another agent
+3. exchange a task
+4. execute or delegate the task
+5. return a result
+6. exchange supporting evidence
+7. request or perform verification
+8. report failures
+9. preserve relevant execution history
+
+Optional features SHOULD NOT be required for basic interoperability.
+
+Implementations SHOULD clearly distinguish core protocol features from optional extensions.
+
+Optional extensions MAY define additional message types, coordination mechanisms, discovery mechanisms, evaluation systems, or transport mechanisms.
+
+Extensions SHOULD preserve the semantics of the core protocol.
+
+An implementation that supports only the minimal interoperable core SHOULD still be capable of participating in useful multi-agent tasks.
+
+The minimal interoperable core SHOULD provide a stable foundation for future protocol versions and independent implementations.
+
+OpenMindMesh SHOULD prioritize a small interoperable core over unnecessary protocol complexity.
