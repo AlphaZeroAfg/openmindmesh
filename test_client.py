@@ -33,7 +33,7 @@ def test_send_task(monkeypatch):
         input_data={"value": 42},
     )
 
-    assert result["status"] == "received"
+    assert result["status"] == "completed"
     assert result["task_id"] == "task-001"
     assert result["input_data"]["value"] == 42
 
