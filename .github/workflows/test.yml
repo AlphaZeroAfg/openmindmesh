@@ -34,3 +34,6 @@ jobs:
         
       - name: Run verifier tests
         run: python test_verifier.py
+
+      - name: Run network tests
+        run: python test_network.py
