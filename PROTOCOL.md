@@ -671,3 +671,31 @@ Agents SHOULD support timeouts or other mechanisms that prevent tasks from remai
 Concurrent execution SHOULD preserve enough information to reconstruct the order and relationships between relevant task events.
 
 The protocol SHOULD support reassignment of coordination responsibilities when the current coordinator becomes unavailable or unreliable.
+
+## 23. Protocol Versioning and Compatibility
+
+OpenMindMesh messages SHOULD include the protocol version used by the sender.
+
+Protocol versions SHOULD follow a clearly defined versioning scheme.
+
+Agents SHOULD advertise the protocol versions they support.
+
+An agent MAY support multiple protocol versions simultaneously.
+
+Agents SHOULD determine compatibility before using protocol features that may not be supported by the receiving agent.
+
+New protocol features SHOULD be introduced in a way that does not unnecessarily break existing implementations.
+
+Unknown optional fields SHOULD be safely ignored when they are not required for processing a message.
+
+Required fields MUST NOT be silently ignored.
+
+An agent that cannot process a message because of an unsupported protocol version SHOULD return an ERROR message when possible.
+
+Protocol changes SHOULD be documented and traceable.
+
+Implementations SHOULD preserve compatibility with earlier protocol versions when practical.
+
+A protocol version change MUST NOT silently change the meaning of existing message types or fields.
+
+OpenMindMesh MAY define compatibility rules for specific protocol versions and message types.
