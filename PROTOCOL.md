@@ -80,3 +80,4 @@ Example:
   "privacy": "do_not_share_raw_user_data",
   "verification": "independent"
 }
+```
