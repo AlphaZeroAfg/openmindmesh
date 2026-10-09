@@ -1,5 +1,7 @@
+
 import requests
 
+from crypto import generate_keypair, sign_omm_message
 from schemas import EvidenceRecord, OMMMessage, MessageType
 
 
@@ -8,6 +10,8 @@ def request_verification(
     target_agent_id: str,
     evidence: EvidenceRecord,
 ):
+    private_key, public_key = generate_keypair()
+
     message = OMMMessage(
         message_id=f"verify-{task_id}",
         message_type=MessageType.VERIFY_REQUEST,
@@ -16,11 +20,19 @@ def request_verification(
         payload={
             "task_id": task_id,
             "evidence": evidence.model_dump(mode="json"),
+            "sender_public_key": public_key,
         },
     )
 
+    message_data = message.model_dump(mode="json")
+
+    message.signature = sign_omm_message(
+        message_data,
+        private_key,
+    )
+
     print("\n[agent-a]")
-    print("  ↓ VERIFY_REQUEST → agent-b")
+    print("  ↓ SIGNED VERIFY_REQUEST → agent-b")
 
     response = requests.post(
         "http://localhost:8001/message",
@@ -29,7 +41,6 @@ def request_verification(
     )
 
     response.raise_for_status()
-
     result = response.json()
 
     print("  ↑ VERIFY_RESULT ← agent-b")
