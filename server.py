@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Any, Dict
@@ -54,14 +55,26 @@ def receive_message(message: OMMMessage):
     message_data = message.model_dump(mode="json")
     signature = message_data.pop("signature", None)
 
-    if message.message_type == MessageType.TASK_ASSIGN:
-        public_key = message.payload["sender_public_key"]
+    if message.message_type in (
+        MessageType.TASK_ASSIGN,
+        MessageType.VERIFY_REQUEST,
+    ):
+        public_key = message.payload.get("sender_public_key")
 
-        valid = verify_signature(
-            message_data,
-            signature,
-            public_key,
-        )
+        if not public_key or not signature:
+            return {
+                "status": "rejected",
+                "reason": "Missing public key or signature",
+            }
+
+        try:
+            valid = verify_signature(
+                message_data,
+                signature,
+                public_key,
+            )
+        except (ValueError, TypeError):
+            valid = False
 
         if not valid:
             return {
@@ -69,17 +82,17 @@ def receive_message(message: OMMMessage):
                 "reason": "Invalid message signature",
             }
 
-        return {
-            "status": "verified",
-            "message_id": message.message_id,
-            "message_type": message.message_type,
-            "sender": message.sender,
-            "receiver": message.receiver,
-            "signature_valid": True,
-            "message": "TASK_ASSIGN verified successfully",
-        }
+        if message.message_type == MessageType.TASK_ASSIGN:
+            return {
+                "status": "verified",
+                "message_id": message.message_id,
+                "message_type": message.message_type,
+                "sender": message.sender,
+                "receiver": message.receiver,
+                "signature_valid": True,
+                "message": "TASK_ASSIGN verified successfully",
+            }
 
-    if message.message_type == MessageType.VERIFY_REQUEST:
         evidence = EvidenceRecord(
             **message.payload["evidence"]
         )
@@ -94,6 +107,7 @@ def receive_message(message: OMMMessage):
             "message_type": MessageType.VERIFY_RESULT,
             "task_id": message.payload["task_id"],
             "target_agent_id": message.sender,
+            "signature_valid": True,
             "outcome": outcome.value,
             "evidence_check": evidence.model_dump(mode="json"),
         }
